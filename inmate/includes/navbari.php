@@ -11,12 +11,23 @@
                         <p>Profile</p>
                     </a>
                 </li>
-                <li>
-                    <a href="messbilli.php">
-                        <i class="pe-7s-note2"></i>
-                        <p>Mess bill</p>
-                    </a>
-                </li>
+                <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="pe-7s-note2"></i>
+                                    <b class="caret "></b>
+									<p class=" ">
+                                    Mess bill
+										<b class="caret"></b>
+									</p>
+                              </a>
+                              <ul class="dropdown-menu k-cust">
+                                <li><a href="viewbillin">View Bill</a></li>
+                                <li><a href="paybillin.php">Pay Bill</a></li>
+                                <!-- <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li> -->
+                              </ul>
+                        </li>
                 <li>
                     <a href="studentbilli.php">
                         <i class="pe-7s-news-paper"></i>

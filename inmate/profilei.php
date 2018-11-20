@@ -12,10 +12,14 @@
   <option value="OEC">OEC</option>
   <option value="OBC">OBC</option>
 </select></td></tr>
+<tr><td>Allotment Number</td><td><input type="text" style="
+     margin-bottom: 20px; name="uname"></td></tr> 
      <tr><td>Username</td><td><input type="text" style="
     margin-bottom: 20px; name="uname"></td></tr>
      <br>
      <tr><td>Address</td><td><textarea rows="4" cols="50"></textarea></td></tr> 
+     <tr><td>E-mail</td><td><input type="text" style="
+     margin-bottom: 20px; name="uname"></td></tr> 
      <tr><td>Password</td><td><input type="password"style="
     margin-bottom: 20px; name="psd"></td></tr>  
      <tr><td>Re-Password</td><td><input type="password" style="

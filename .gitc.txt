@@ -1,0 +1,6 @@
+system to git
+1. git add .
+2. git commit -m "change type"
+3. git push origin master 
+git to system
+1.git pull
