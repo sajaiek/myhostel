@@ -29,7 +29,7 @@
                               </ul>
                         </li>
                 <li>
-                    <a href="studentbilli.php">
+                    <a href="noticesi.php">
                         <i class="pe-7s-news-paper"></i>
                         <p>notices</p>
                     </a>

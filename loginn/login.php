@@ -55,7 +55,7 @@ if( $type  = "ANDMIN" ) {
 	
 
 
-	$stmnt='select * from admin where username = :username and password = :password';
+	$stmnt='select * from register where email = :username and password = :password';
 	$params=array( 
 	 ':username'  =>  $username,
 	 ':password'  =>  $password
@@ -64,6 +64,31 @@ if( $type  = "ANDMIN" ) {
 	  
 	 $_SESSION['userid']=$username;
 	 $_SESSION['type']='AUTHORITY';
+	//  header('Location: dashbord.php');
+	 exit();
+   }else{
+	 $message= 'Incorrect username or password';
+   }
+
+
+
+
+
+} else if( $type == "INMATE" ) {
+
+
+	
+
+
+	$stmnt='select * from register where email = :username and password = :password type="INMATE"';
+	$params=array( 
+	 ':username'  =>  $username,
+	 ':password'  =>  $password
+   );
+	if($db->display($stmnt,$params)){
+	  
+	 $_SESSION['userid']=$username;
+	 $_SESSION['type']='INMATE';
 	//  header('Location: dashbord.php');
 	 exit();
    }else{

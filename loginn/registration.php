@@ -100,6 +100,10 @@ if(isset($_POST['submit'])){
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+					  <input class="input100" type="text" name="mail" placeholder="E-mail">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 					  <input class="input100" type="password" name="psd" placeholder="PASSWORD">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
@@ -138,7 +142,16 @@ if(isset($_POST['submit'])){
 </select>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
-
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+					 <select class="input100" name=hostel>
+						  <option value="">SELECT USER</option>
+  <option value="ADMIN">ADMIN</option>
+  <option value="INMATE">INMATE</option>
+  <option value="AUTHORITY">AUTHORITY</option>
+  
+</select>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
 
 <?php  if($message != "" ): ?>
 					<div class='alert alert-warning'>
