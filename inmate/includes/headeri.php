@@ -1,6 +1,8 @@
 <?php
 include_once('../root/connection.php');
 
+session_start();
+
 $db = new Database();
 
 
@@ -42,16 +44,28 @@ $db = new Database();
     <style type="text/css">
     
     .sidebar[data-color="purple"]:after {
-    background: #333333f2;
-    background: -moz-linear-gradient(top, #333333f2 0%, #002712d6 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333f2), color-stop(100%, #002712d6));
-    background: -webkit-linear-gradient(top, #333333f2 0%, #002712d6 100%);
-    background: -o-linear-gradient(top, #333333f2 0%, #002712d6 100%);
-    background: -ms-linear-gradient(top, #333333f2 0%, #002712d6 100%);
-    background: linear-gradient(to bottom, #333333f2 0%, #002712d6 100%);
+    background: #2472fff2 ;
+    background: -moz-linear-gradient(top, #2472fff2  0%, #3a4e43d6  100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2472fff2 ), color-stop(100%, #3a4e43d6 ));
+    background: -webkit-linear-gradient(top, #2472fff2  0%, #3a4e43d6  100%);
+    background: -o-linear-gradient(top, #2472fff2  0%, #3a4e43d6  100%);
+    background: -ms-linear-gradient(top, #2472fff2  0%, #3a4e43d6  100%);
+    background: linear-gradient(to bottom, #2472fff2  0%, #3a4e43d6  100%);
     background-size: 150% 150%;
 }
-    
+
+   .dropdown-menu.k-cust { 
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+   } 
+   .dropdown.open .dropdown-menu.k-cust {
+    position: static; 
+   }  
     </style>
 
 </head>

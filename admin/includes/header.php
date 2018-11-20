@@ -38,6 +38,25 @@ $db = new Database();
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+
+
+<style>
+
+
+   .dropdown-menu.k-cust { 
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+   } 
+   .dropdown.open .dropdown-menu.k-cust {
+    position: static; 
+   } 
+
+</style>
 </head>
 <body>
 

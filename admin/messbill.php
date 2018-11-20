@@ -4,9 +4,10 @@
      
      
      
+     <form action="" method="post">
+
      
      
-        <html>
      <table style="width:100%">
      
      <tr><td><select>
@@ -35,20 +36,30 @@
   <option value="2018">2018</option>
   <option value="2019">2019</option>
   
-</select></td><td><button type="button" style="
+</select></td><td><button type="submit" name="search" style="
     margin-bottom: 20px;
 ">View</button></td></tr>
           
      </table>
+
      
-     </html>
-     
-     
-             
+             </form>
 
 
+<?php if(isset($_POST['search'])): ?>
+            <table>
+           <tr>
+              <td>jj</td>
+           </tr>
 
-              
+           </table>
+           
+<?php endif; ?>
+         
+<?php ?>
+         
+<?php ?>
+           
 
 
         <?php include_once('includes/footer.php'); ?>
