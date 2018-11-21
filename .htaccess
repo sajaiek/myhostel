@@ -1,0 +1,62 @@
+RewriteEngine on
+
+#RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+#RewriteRule ^(.*)$ - [E=BASE:%1]
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#========================== pulbic ======================================================
+
+RewriteRule ^login$ loginn/login.php [L]   
+RewriteRule ^registration$ loginn/registration.php [L]   
+
+
+#================ ======================================= ==================================
+
+
+
+
+# ========================= admin ===========================================================
+
+
+# ========================= volunteer ===========================================================
+
+
+#================ ======================================= ==================================
+
+
+
+
+
+
+
+
+
+
+#RewriteRule ^login$ public/login.php [L]  
+#RewriteRule ^ajax$ ajax.php [L]  
+
+
+
+
+
+#RewriteRule ^password$ public/rit_soft_pass.php [L]   
+#RewriteRule ^password_key$ public/rit_soft_pass.php [L]   
+#RewriteRule ^password_key/([^/]+)$ public/rit_soft_pass.php?key=$1 [L] 
+
+
+
+
+
+RewriteRule ^ajax$ ajax.php [L]   
+
+ErrorDocument 400 /myhostel/public/error.php?key=400
+ErrorDocument 401 /myhostel/public/error.php?key=401
+ErrorDocument 403 /myhostel/public/error.php?key=403 
+ErrorDocument 404 /myhostel/public/error.php?key=404
+ErrorDocument 500 /myhostel/public/error.php?key=500
+ErrorDocument 502 /myhostel/public/error.php?key=502
+ErrorDocument 504 /myhostel/public/error.php?key=504

@@ -1,8 +1,12 @@
 <?php
+include_once('../global.php');
+include_once('../root/connection.php');
+include_once('../root/functions.php');
 
-include_once('root/connection.php');
 
- 
+
+
+auth_use();
 $db=new Database();
 
 $message = "";
@@ -16,27 +20,29 @@ if(isset($_POST['submit'])){
 	$password = $_POST['psd'];
 	$repass = $_POST['repsd'];
 	$class = $_POST['class'];
+	$email = $_POST['mail'];
+	$type = $_POST['type'];
 	$batch = $_POST['batch'];
 	//$batch = $_POST['batch'];
-  $hostel = $_POST['hostel'];
+	$hostel = $_POST['hostel'];
 
 	// print_r($_POST);
 
 
-   $stmnt="insert into register(reg_no,name,phone,password,class,batch,hostel_name) values($admnno,'$name',$phone,'$password','$class',$batch,'$hostel')";
-  
+	$stmnt="insert into register(reg_no,name,phone,password,class,batch,hostel_name,email, type) values('$admnno','$name',$phone,'$password','$class',$batch,'$hostel', '$email', '$type')";
 
 
 
 
-  if($db->execute_query($stmnt)){
 
-    $message='success';
+	if($db->execute_query($stmnt)){
 
-  }else{
-    
-    $message = 'Failed';  
-  }
+		$message='success';
+
+	}else{
+
+		$message = 'Failed';  
+	}
 
 
 
@@ -48,30 +54,36 @@ if(isset($_POST['submit'])){
 <html lang="en">
 <head>
 	<title>Login V3</title>
+
+
+	<base href="<?php echo DIRECTORY.'loginn/' ; ?>">
+	<title><?php  echo DISPLAY_NAME; ?></title>
+
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 </head>
 <body>
 	
@@ -88,76 +100,76 @@ if(isset($_POST['submit'])){
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					  <input class="input100" type="text" name="admnno" placeholder="ADMISSION NUMBER">
+						<input class="input100" type="text" name="admnno" placeholder="ADMISSION NUMBER">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					  <input class="input100" type="text" name="name" placeholder="NAME">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-				</div>
-				  <div class="wrap-input100 validate-input" data-validate = "Enter username">
-					  <input class="input100" type="text" name="phone" placeholder="PHONE NUMBER">
+						<input class="input100" type="text" name="name" placeholder="NAME">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					  <input class="input100" type="text" name="mail" placeholder="E-mail">
+						<input class="input100" type="text" name="phone" placeholder="PHONE NUMBER">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					  <input class="input100" type="password" name="psd" placeholder="PASSWORD">
+						<input class="input100" type="text" name="mail" placeholder="E-mail">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					  <input class="input100" type="password" name="repsd" placeholder="RE-ENTER PASSWORD">
+						<input class="input100" type="password" name="psd" placeholder="PASSWORD">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					 <select class="input100" name="class">
-						  <option value="">SELECT CLASS</option>
-  <option value="MCA">MCA</option>
-  <option value="B.tech">B.tech</option>
-  <option value="B.arch">B.arch</option>
-  <option value="M.tech">M.tech</option>
-</select>
+						<input class="input100" type="password" name="repsd" placeholder="RE-ENTER PASSWORD">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					 <select class="input100" name=batch>
-						  <option value="volvo">SELECT BATCH</option>
-  <option value="2015">2015</option>
-  <option value="2016">2016</option>
-  <option value="2017">2017</option>
-  <option value="2018">2018</option>
-</select>
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-				<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					 <select class="input100" name=hostel>
-						  <option value="">SELECT HOSTEL</option>
-  <option value="PGH">PGH</option>
-  <option value="MH">MH</option>
-  <option value="OLDLH">OLDLH</option>
-  <option value="NEWLH">NEWLH</option>
-<option value="AICTELH">AICTELH</option>
-</select>
+						<select class="input100" name="class">
+							<option value="">SELECT CLASS</option>
+							<option value="MCA">MCA</option>
+							<option value="B.tech">B.tech</option>
+							<option value="B.arch">B.arch</option>
+							<option value="M.tech">M.tech</option>
+						</select>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-					 <select class="input100" name=hostel>
-						  <option value="">SELECT USER</option>
-  <option value="ADMIN">ADMIN</option>
-  <option value="INMATE">INMATE</option>
-  <option value="AUTHORITY">AUTHORITY</option>
-  
-</select>
+						<select class="input100" name=batch>
+							<option value="volvo">SELECT BATCH</option>
+							<option value="2015">2015</option>
+							<option value="2016">2016</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+						</select>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<select class="input100" name='hostel'>
+							<option value="">SELECT HOSTEL</option>
+							<option value="PGH">PGH</option>
+							<option value="MH">MH</option>
+							<option value="OLDLH">OLDLH</option>
+							<option value="NEWLH">NEWLH</option>
+							<option value="AICTELH">AICTELH</option>
+						</select>
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<select class="input100" name='type'>
+							<option value="">SELECT USER</option>
+							<option value="ADMIN">ADMIN</option>
+							<option value="INMATE">INMATE</option>
+							<option value="AUTHORITY">AUTHORITY</option>
+
+						</select>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
-<?php  if($message != "" ): ?>
-					<div class='alert alert-warning'>
-					<p><?php echo $message; ?></p>
-					</div>
-<?php endif; ?>
+					<?php  if($message != "" ): ?>
+						<div class='alert alert-warning'>
+							<p><?php echo $message; ?></p>
+						</div>
+					<?php endif; ?>
 
 
 					<div class="container-login100-form-btn">
@@ -165,20 +177,20 @@ if(isset($_POST['submit'])){
 							SUBMIT
 						</button>
 						<BR>
-								<BR>
-								<BR>
-							
-							</div>
-						<div class="container-login100-form-btn">
+						<BR>
+						<BR>
+
+					</div>
+					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" name=reset>
 							RESET
 						</button>
 					</div>
 					
-</div>
+				</div>
 				
-					>
-					
+				>
+
 			<!-- 		<div class="contact100-form-checkbox">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 						<label class="label-checkbox100" for="ckb1">
@@ -190,15 +202,15 @@ if(isset($_POST['submit'])){
 						
 						
 						<div class="dropdown my-login-drop mb-2" style="min-width: 45%;">
-<div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
-  <a class="dropdown-item" href="#">S1MCA</a>
-  <a class="dropdown-item" href="#">S3MCA</a>
-  <a class="dropdown-item" href="#">S4MCA</a>
-</div>
-</div>
+							<div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+								<a class="dropdown-item" href="#">S1MCA</a>
+								<a class="dropdown-item" href="#">S3MCA</a>
+								<a class="dropdown-item" href="#">S4MCA</a>
+							</div>
+						</div>
 						
 						
-				  </div>
+					</div>
 					<div class="container-login100-form-btn"> </div>
 
 					
@@ -210,29 +222,30 @@ if(isset($_POST['submit'])){
 
 	<div id="dropDownSelect1"></div>
 	
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/daterangepicker/moment.min.js"></script>
 	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
 
-$(document).on('click', '.my-login-drop a.dropdown-item', function(){
-	$('.my-login-drop .dropdown-head').text($(this).text().trim());
-});
+			$(document).on('click', '.my-login-drop a.dropdown-item', function(e){
+				e.preventDefault();
+				$('.my-login-drop .dropdown-head').text($(this).text().trim());
+			});
 
 
 		});
