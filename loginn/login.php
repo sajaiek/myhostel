@@ -35,7 +35,7 @@ if(isset($_POST['login'])){
 	$type = $_POST['type'];
 
 
-	if( $type  == "ANDMIN" ) {
+	if( $type  == "ADMIN" ) {
 
 
 
