@@ -128,7 +128,7 @@ switch( $message[0]) {
 
          
  </tbody>
- </table>
+ </table>       
      
      
      

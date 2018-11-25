@@ -5,7 +5,7 @@
      
      
      
-     
+        <form action="upload.php" method="post" enctype="multipart/form-data">
      
         <table style="width:100%">
         <td class=text-center><h5>UPLOAD MESS BILL</h5></td>
@@ -34,9 +34,9 @@
   
 </select></td></tr>  
      <tr><td>Mess Bill Calculation:</td><td><input type="file" style="
-    margin-bottom: 20px; name="pic" accept="application/pdf,application/vnd.ms-excel"></td></td></tr> 
+    margin-bottom: 20px;" name="pic" accept="application/pdf,application/vnd.ms-excel"></td></td></tr> 
      <tr><td>Mess Bill:</td><td><input type="file" style="
-    margin-bottom: 20px;name="pic" accept="application/pdf,application/vnd.ms-excel"></td></tr> 
+    margin-bottom: 20px;"name="pic" accept="application/pdf,application/vnd.ms-excel"></td></tr> 
      <!-- <tr><td>E-mail</td><td><input type="mail"style="
     margin-bottom: 20px;name="mail"></td></tr> 
    

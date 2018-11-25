@@ -59,11 +59,22 @@
                         </li>
 
                
+               <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="pe-7s-paper-plane"></i>
+                                    <b class="caret "></b>
+									<p class=" ">
+                                    FEEDBACK
+										<b class="caret"></b>
+									</p>
+                              </a>
+                              <ul class="dropdown-menu k-cust">
+                                <li><a href="viewfeedback.php">View Feeds</a></li>
+                                <li><a href="uploadmess.php">Compose Feed</a></li>
+                                <!-- <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li> -->
+                              </ul>
+                        </li>
                 <li>
-                    <a href="feedbacka.php">
-                        <i class="pe-7s-paper-plane"></i>
-                        <p>Feedback</p>
-                    </a>
-                </li>
-			 
             </ul>

@@ -4,12 +4,12 @@
      <table style="width:100%">
      
      <tr><td>From</td><td><input type="text" style="
-    margin-bottom: 20px; name="uname"></td></tr>
+    margin-bottom: 20px; name="from"></td></tr>
      <br>
-     <tr><td>Subject</td><td><input type="password"style="
-    margin-bottom: 20px; name="psd"></td></tr>  
-     <tr><td>Date</td><td><input type="password" style="
-    margin-bottom: 20px; name="psd1"></td></tr> 
+     <tr><td>Subject</td><td><input type="text"style="
+    margin-bottom: 20px; name="subject"></td></tr>  
+     <tr><td>Date</td><td><input type="text" style="
+    margin-bottom: 20px; name=""></td></tr> 
      <tr><td>Mobile</td><td><input type="text" style="
     margin-bottom: 20px;name="mob"></td></tr> 
      <tr><td>E-mail</td><td><input type="mail"style="
