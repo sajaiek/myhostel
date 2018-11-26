@@ -1,16 +1,35 @@
 <?php include_once('includes/headeri.php'); ?>
-<?php 
+
+   <?php 
         if(isset($_POST['pay'])){
 
           var_dump($_SESSION);
-     
-     
-     
-     ?>
 
+
+
+$params =array(
+   'bill' => $_POST[''] ,
+   'month' => $_POST[''] ,
+   'year' => $_POST[''] ,
+   'payment' => $_POST[''] ,
+   'amount' => $_POST[''] ,
+   'transno' => $_POST[''] ,
+
+);
+$result=insertInToTable('bill',$params , $db );
+
+        }
+
+
+?>
+
+
+<form action="" method="post">
+     
      <table style="width:100%">
         <td class=text-center><h5>PAY MY MESS </h5></td>
-     
+        <tr><td>Bill ID</td><td><input type="text" name="billid" style="
+        margin-bottom: 20px;"></td></tr> 
      <tr><td>Month:</td><td><select name="month" style="
      margin-bottom: 20px";>
      <option selected disabled>Select Month</option>
@@ -47,10 +66,10 @@ margin-bottom: 20px">
   <option value="counter">Counter </option>
   <tr><td>Transaction Number</td><td><input type="text" name="transno"></td></tr>
   
-     <tr><td><button name="pay" type="button">Pay</button></td><td><button type="button" class="mt-5">Clear</button></td></tr>                  
+     <tr><td><button name="pay" type="submit">Pay</button></td><td><button type="button" class="mt-5">Clear</button></td></tr>                  
      </table>
      
-     
+     </form>
                    
      
      

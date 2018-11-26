@@ -9,7 +9,8 @@
      
         <table style="width:100%">
         <td class=text-center><h5>UPLOAD MESS BILL</h5></td>
-     
+        <tr><td>Bill ID</td><td><input type="text" name="billid" style="
+    margin-bottom: 20px;"></td></tr>
      <tr><td>Month:</td><td><select>
      <option value="">SELECT Month</option>
   <option value="January">January</option>
@@ -34,7 +35,7 @@
   
 </select></td></tr>  
      <tr><td>Mess Bill Calculation:</td><td><input type="file" style="
-    margin-bottom: 20px;" name="pic" accept="application/pdf,application/vnd.ms-excel"></td></td></tr> 
+    margin-bottom: 20px;" name="file1" id="file1" accept="application/pdf,application/vnd.ms-excel"></td></td></tr> 
      <tr><td>Mess Bill:</td><td><input type="file" style="
     margin-bottom: 20px;"name="pic" accept="application/pdf,application/vnd.ms-excel"></td></tr> 
      <!-- <tr><td>E-mail</td><td><input type="mail"style="
@@ -47,6 +48,7 @@
      
      </td></tr> -->
      <tr><td><button type="button">Upload</button></td><td><button type="button" class="mt-5">Clear</button></td></tr>                  
+     </form>
      </table>
     
      
