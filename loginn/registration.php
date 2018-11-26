@@ -108,6 +108,12 @@ if(isset($_POST['submit'])){
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+					<input type="radio" name="gender" value="male" checked> Male<br>
+  <input type="radio" name="gender" value="female"> Female<br>
+  <input type="radio" name="gender" value="other"> Other  
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="phone" placeholder="PHONE NUMBER">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
