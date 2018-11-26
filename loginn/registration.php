@@ -14,22 +14,22 @@ $message = "";
 
 if(isset($_POST['submit'])){
 
-	$admnno = $_POST['admnno'];
+	$admn_no = $_POST['admn_no'];
 	$name = $_POST['name'];
 	$phone = $_POST['phone'];
 	$password = $_POST['psd'];
 	$repass = $_POST['repsd'];
 	$class = $_POST['class'];
 	$email = $_POST['mail'];
-	$type = $_POST['type'];
+    $gender=$_POST['gender'];
 	$batch = $_POST['batch'];
 	//$batch = $_POST['batch'];
-	$hostel = $_POST['hostel'];
+	$hostel_id = $_POST['hostel_id'];
 
 	// print_r($_POST);
 
 
-	$stmnt="insert into register(reg_no,name,phone,password,class,batch,hostel_name,email, type) values('$admnno','$name',$phone,'$password','$class',$batch,'$hostel', '$email', '$type')";
+	$stmnt="insert into register(admn_no,name,phone,password,class,batch,hostel_id,email,gender) values('$admn_no','$name',$phone,'$password','$class',$batch,'$hostel_id', '$email','$gender')";
 
 
 
@@ -100,7 +100,7 @@ if(isset($_POST['submit'])){
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="admnno" placeholder="ADMISSION NUMBER">
+						<input class="input100" type="text" name="admn_no" placeholder="ADMISSION NUMBER">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
@@ -150,23 +150,17 @@ if(isset($_POST['submit'])){
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<select class="input100" name='hostel'>
-							<option value="">SELECT HOSTEL</option>
-							<option value="PGH">PGH</option>
-							<option value="MH">MH</option>
-							<option value="OLDLH">OLDLH</option>
-							<option value="NEWLH">NEWLH</option>
-							<option value="AICTELH">AICTELH</option>
+						<select class="input100" name='hostel_id'>
+						<?php $details = selectFromTable( '*', 'hostel', "1" , $db); ?>
+						<option selected="selected" disabled="disabled">Select Hostel</option>
+						<?php foreach ($details as $key => $value): ?>
+							<option value="<?php  echo isit( 'hostel_id', $value); ?>"><?php  echo isit( 'name', $value); ?></option>
+							<?php endforeach; ?>
+							
 						</select>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<select class="input100" name='type'>
-							<option value="">SELECT USER</option>
-							<option value="ADMIN">ADMIN</option>
-							<option value="INMATE">INMATE</option>
-							<option value="AUTHORITY">AUTHORITY</option>
-
+					
 						</select>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
