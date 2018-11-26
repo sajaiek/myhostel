@@ -63,7 +63,7 @@ if(isset($_POST['login'])){
 
 
 
-		$stmnt='select * from register where email = :username and password = :password and type="AUTHORITY" ';
+		$stmnt='select * from register where email = :username and password = :password and is_authority=1';
 		$params=array( 
 			':username'  =>  $username,
 			':password'  =>  $password
