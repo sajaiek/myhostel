@@ -8,7 +8,7 @@ auth_login();
 
 $db = new Database();
 
-
+$message = array();
 
 
 ?><!doctype html>
@@ -40,6 +40,15 @@ $db = new Database();
     <link href="../assets/css/demo.css" rel="stylesheet" />
 
 
+
+
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="../assets/css/select2.min.css">
+    <link rel="stylesheet" href="../assets/css/datatables.min.css"> 
+
+
+
+
     <!--     Fonts and icons     -->
     <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
@@ -63,6 +72,10 @@ $db = new Database();
         position: static; 
     } 
 
+    .parsley-errors-list {
+        color: red;
+        list-style: none;
+    }
 </style>
 </head>
 <body>
