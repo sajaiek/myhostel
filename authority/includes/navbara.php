@@ -5,12 +5,12 @@
                         <p>.</p>
                     </a>
                 </li> -->
-                <li>
+            <!--     <li>
                     <a href="profilea.php">
                         <i class="pe-7s-user"></i>
                         <p>Profile</p>
                     </a>
-                </li> 
+                  </li>  -->
                 <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="pe-7s-note2"></i>
