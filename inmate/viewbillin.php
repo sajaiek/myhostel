@@ -40,15 +40,18 @@
             <?php if( isit('sstatus', $value) == 0 ): ?>  
 
               <a href="editmess.php?action=0&id=<?php echo isit('bill_id', $value); ?>" class="btn btn-sm btn-waring"  > pay</a>
-              <?php else: ?>
-                <a href="editmess.php?action=1&id=<?php echo isit('bill_id', $value); ?>" class="btn btn-sm btn-success"  > view</a>
-              <?php endif; ?>
-            </td> 
-          </tr>
-        <?php endforeach; ?>
-      </body>
-    </table>
-  <?php endif; ?>
+              <?php elseif( isit('sstatus', $value) == -1 ): ?>
+                <small><?php echo isit('remark', $value); ?></small> <br/>
+                <a href="editmess.php?action=1&id=<?php echo isit('bill_id', $value); ?>" class="btn btn-sm btn-success"  > edit </a>
+                <?php else: ?>
+                  <a href="editmess.php?action=1&id=<?php echo isit('bill_id', $value); ?>" class="btn btn-sm btn-success"  > view</a>
+                <?php endif; ?>
+              </td> 
+            </tr>
+          <?php endforeach; ?>
+        </body>
+      </table>
+    <?php endif; ?>
 
 
 
@@ -56,5 +59,5 @@
 
 
 
-  <?php include_once('includes/footeri.php'); ?>      
+    <?php include_once('includes/footeri.php'); ?>      
 
