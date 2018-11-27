@@ -1,62 +1,92 @@
 
-        <?php include_once('includes/headera.php'); ?>
-     
-     
-     
-     
-     
-     
-     
-     <table style="width:100%">
-     <td class=text-center><h5>HDF REGISTER ADDITION</h5></td>
-  
-  <tr><td>Month:</td><td><select>
-  <option value="">SELECT Month</option>
-<option value="January">January</option>
-<option value="February">February</option>
-<option value="March">March</option>
-<option value="April">April</option>
-<option value="May">May</option>
-<option value="June">June</option>
-<option value="July">July</option>
-<option value="August">August</option>
-<option value="September">September</option>
-<option value="October">October</option>
-<option value="November">November</option>
-<option value="December">December</option>
-</select ></td></tr>
-  <br>
-  <tr><td>Year:</td><td><td><select>
-  <option value="">SELECT Year</option>
-<option value="2017">2017</option>
-<option value="2018">2018</option>
-<option value="2019">2019</option>
-
-</select></td></tr>  
-  <tr><td>Bill Number:</td><td><input type="text" name="fname"></td></td></tr> 
-  <tr><td>Item:</td><td><input type="text" name="fname"></td></td></tr> 
-  <tr><td>Bill:</td><td><input type="file" style="
- margin-bottom: 20px;name="pic" accept="application/pdf,application/vnd.ms-excel"></td></tr> 
-  <!-- <tr><td>E-mail</td><td><input type="mail"style="
- margin-bottom: 20px;name="mail"></td></tr> 
-
-<tr><td>Password</td><td><input type="password" name="psd"></td></tr>
-  <tr><td></td><td>
-  
-  <div style="height: 2rem;"></div>
-  
-  </td></tr> -->
-  <tr><td><button type="button">ADD</button></td><td><button type="button" class="mt-5">CLEAR</button></td></tr>                  
-  </table>
- 
-  
-  
-  
-          
+<?php include_once('includes/headera.php'); ?>
 
 
+<?php
 
-           
+$hostel_id = $_SESSION[ SYSTEM_NAME.'hostel'];
 
 
-     <?php include_once('includes/footera.php'); ?>
+if (isset($_POST['hdf'])) { 
+  $params = array(
+    'hostel_id' => $hostel_id, 
+    'year' => $_POST['year'] ,
+    'total' => $_POST['total'] ,
+    'balance' => $_POST['total'] 
+  );
+
+  $resdf = selectFromTable('*', 'hdf', "  hostel_id = '$hostel_id' AND year = '".$_POST['year']."'   ", $db);
+
+  if (  $resdf) {
+
+    $message[0] = 3;
+    $message[1] = " already exists ";
+
+  } else {
+
+    $result = insertIntoTable( 'hdf', $params  , $db, true);
+    if ($result) {
+      $message[0] = 1;
+      $message[1] = "success"; 
+
+
+    } else {
+      $message[0] = 4;
+      $message[1] = " error ";
+    }
+
+
+  }
+
+
+}
+
+
+?>
+
+
+<form action="" method="post" enctype="multipart/form-data" data-parsley-validate>
+  <?php  echo show_error($message); ?>
+  <table style="width:100%">
+   <tr>
+    <td class=text-center><h5>HDF REGISTER ADDITION</h5></td>
+
+  </tr>
+  <tr><td>Year:</td><td>
+
+
+    <?php   $date = (int) Date('Y'); ?>
+    <select  name ="year" required>
+     <option value="" disabled selected>SELECT Year</option>
+     <option value="<?php echo $date -4;  ?>"><?php echo $date - 4;  ?></option>
+     <option value="<?php echo $date -3;  ?>"><?php echo $date - 3;  ?></option>
+     <option value="<?php echo $date -2;  ?>"><?php echo $date - 2;  ?></option>
+     <option value="<?php echo $date -1;  ?>"><?php echo $date -1;  ?></option>
+     <option selected value="<?php echo $date ;  ?>"><?php echo $date ;  ?></option>
+
+   </select></td></tr>  
+
+   <tr><td>total</td><td><input type="number" s name="total" id="total"  required></td></tr> 
+
+
+
+ </table>
+
+
+
+
+ <table class="table">
+
+
+  <tr><td><button type="submit" name="hdf" class="btn ">Upload</button></td><td><button type="clear" class="mt-5">Clear</button></td></tr>                  
+
+
+</table>
+</form>
+
+
+
+
+
+
+<?php include_once('includes/footera.php'); ?>

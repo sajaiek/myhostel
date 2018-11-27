@@ -72,7 +72,8 @@ if(isset($_POST['login'])){
 
 			$_SESSION[ SYSTEM_NAME.'userid']=$username;
 			$_SESSION[ SYSTEM_NAME.'type']='AUTHORITY';
-			$_SESSION[ SYSTEM_NAME.'userid0']=$db->display($stmnt,$params)[0]['reg_no'];
+			$_SESSION[ SYSTEM_NAME.'userid0']=$db->display($stmnt,$params)[0]['reg_id'];
+			$_SESSION[ SYSTEM_NAME.'hostel']=$db->display($stmnt,$params)[0]['hostel_id'];
 			header('Location: '.DIRECTORY_AUTHORITY);
 			exit();
 		}else{
@@ -88,19 +89,21 @@ if(isset($_POST['login'])){
 
 
 
-		$stmnt='select * from register where email = :username and password = :password and type="INMATE"';
+		$stmnt='select * from register where email = :username and password = :password ';
 		$params=array( 
 			':username'  =>  $username,
 			':password'  =>  $password
 		);
-
+		
 
 		if($db->display($stmnt,$params)){
 
 			$_SESSION[ SYSTEM_NAME.'userid']=$username;
 			$_SESSION[ SYSTEM_NAME.'type']='INMATE';
 
-			$_SESSION[ SYSTEM_NAME.'userid0']=$db->display($stmnt,$params)[0]['reg_no'];
+			$_SESSION[ SYSTEM_NAME.'userid0']=$db->display($stmnt,$params)[0]['reg_id'];
+
+			$_SESSION[ SYSTEM_NAME.'hostel']=$db->display($stmnt,$params)[0]['hostel_id'];
 
 			header('Location: '. DIRECTORY_INMATE);
 			exit();

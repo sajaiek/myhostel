@@ -1,46 +1,60 @@
 <?php include_once('includes/headeri.php'); ?>
 <table style="width:100%">
-        <td class=text-center><h5>VIEW MY MESS </h5></td>
-     
-     <tr><td>Month:</td><td><select>
-     <option value="">SELECT Month</option>
-  <option value="January">January</option>
-  <option value="February">February</option>
-  <option value="March">March</option>
-  <option value="April">April</option>
-  <option value="May">May</option>
-  <option value="June">June</option>
-  <option value="July">July</option>
-  <option value="August">August</option>
-  <option value="September">September</option>
-  <option value="October">October</option>
-  <option value="November">November</option>
-  <option value="December">December</option>
-</select ></td></tr>
-     <br>
-     <tr><td>Year:</td><td><td><select>
-     <option value="">SELECT Year</option>
-  <option value="2017">2017</option>
-  <option value="2018">2018</option>
-  <option value="2019">2019</option>
-  
-</select></td></tr>  
-     <!-- <tr><td>Mess Bill Calculation:</td><td><input type="file" style="
-    margin-bottom: 20px; name="pic" accept="application/pdf,application/vnd.ms-excel"></td></td></tr> 
-     <tr><td>Mess Bill:</td><td><input type="file" style="
-    margin-bottom: 20px;name="pic" accept="application/pdf,application/vnd.ms-excel"></td></tr>  -->
-     <!-- <tr><td>E-mail</td><td><input type="mail"style="
-    margin-bottom: 20px;name="mail"></td></tr> 
-   
-   <tr><td>Password</td><td><input type="password" name="psd"></td></tr>
-     <tr><td></td><td>
-     
-     <div style="height: 2rem;"></div>
-     
-     </td></tr> -->
-     <tr><td><button type="button">Search</button></td><td><button type="button" class="mt-5">Clear</button></td></tr>                  
-     </table>
-    
-     <?php include_once('includes/footeri.php'); ?>      
-          
-                  
+  <td class=text-center><h5>VIEW MY MESS </h5></td>
+</table>
+
+
+
+
+
+
+
+<?php $details = selectFromTable( '*, b.amount AS samount , b.status AS sstatus', '   `mess` m LEFT JOIN bill  b ON m.mess_id = b.mess_id LEFT JOIN register r ON b.reg_id = r.reg_id ', '  r.reg_id = '. $_SESSION[ SYSTEM_NAME.'userid0'] . " ORDER BY m.month, m.year" ,$db); ?>
+
+<?php 
+
+
+?>
+<?php if($details ): ?>
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Nmae</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Amount</th> 
+        <th></th>
+      </tr>
+    </thead>
+    <body>
+
+      <?php foreach ($details as $key => $value): ?>
+        <tr>
+          <td><?php echo isit('name', $value); ?></td>
+          <td><?php echo date('F', mktime(0, 0, 0, isit('month', $value), 10)); ?></td>
+          <td><?php echo isit('year', $value); ?></td>
+          <td><?php echo isit('samount', $value); ?></td>
+
+
+          <td>
+            <?php if( isit('sstatus', $value) == 0 ): ?>  
+
+              <a href="editmess.php?action=0&id=<?php echo isit('bill_id', $value); ?>" class="btn btn-sm btn-waring"  > pay</a>
+              <?php else: ?>
+                <a href="editmess.php?action=1&id=<?php echo isit('bill_id', $value); ?>" class="btn btn-sm btn-success"  > view</a>
+              <?php endif; ?>
+            </td> 
+          </tr>
+        <?php endforeach; ?>
+      </body>
+    </table>
+  <?php endif; ?>
+
+
+
+
+
+
+
+  <?php include_once('includes/footeri.php'); ?>      
+
