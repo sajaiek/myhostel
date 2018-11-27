@@ -46,8 +46,7 @@
         <th>Nmae</th> 
         <th>Year</th>
         <th>total</th>
-        <th>balance</th>
-        <th></th>
+        <th>balance</th> 
       </tr>
     </thead>
     <body>
@@ -60,11 +59,7 @@
           <td><?php echo isit('balance', $value); ?></td>
 
 
-          <td>
 
-            <a href="edithdf.php?id=<?php echo isit('hdf_id', $value); ?>" class="btn btn-sm btn-waring" > edit</a>
-
-          </td> 
         </tr>
       <?php endforeach; ?>
     </body>
