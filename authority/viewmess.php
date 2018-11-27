@@ -82,3 +82,22 @@
 <?php include_once('includes/footera.php'); ?>
 
 
+<script type="text/javascript">
+  $(document).ready(function($) {
+
+    $('.showFirst').css('display', 'block');
+    $('.showNow').css('display', 'none');
+    $(document).on('click', '.showFirst', function(event) {
+      event.preventDefault();
+      $(this).closest('form').find('.showNow').css('display', 'block');
+      $(this).css('display', 'none');
+
+
+
+    });
+
+
+
+    
+  });
+</script>

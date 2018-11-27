@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
 $details = selectFromTable( '*, b.amount AS samount , b.status AS sstatus', '   `mess` m LEFT JOIN bill  b ON m.mess_id = b.mess_id LEFT JOIN register r ON b.reg_id = r.reg_id ', '  b.bill_id = '. $id . " ORDER BY m.month, m.year" ,$db); 
 
 
-if ($details[0]['sstatus'] == 0) {
+if ($details[0]['sstatus'] == 0 || $details[0]['sstatus'] == -1) {
 	# code...
 
 	?>
@@ -185,7 +185,7 @@ if ($details[0]['sstatus'] == 0) {
 			</body>
 		</table>
 
-		
+
 
 	</form>
 
