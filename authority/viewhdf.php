@@ -47,6 +47,7 @@
         <th>Year</th>
         <th>total</th>
         <th>balance</th> 
+        <th>Action</th> 
       </tr>
     </thead>
     <body>
@@ -59,6 +60,7 @@
           <td><?php echo isit('balance', $value); ?></td>
 
 
+          <td><a class="btn" href="edithdf.php?id=<?php echo isit('hdf_id', $value); ?>">add bills</a></td>
 
         </tr>
       <?php endforeach; ?>
