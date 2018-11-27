@@ -1,8 +1,14 @@
 <?php
+include_once('../global.php');
 include_once('../root/connection.php');
+include_once('../root/functions.php');
+
+auth_login();
+
 
 $db = new Database();
 
+$message = array();
 
 
 
@@ -40,34 +46,34 @@ $db = new Database();
     <style type="text/css">
     
     .sidebar[data-color="purple"]:after {
-    background: #333333f2;
-    background: -moz-linear-gradient(top, #333333f2 0%, #002712d6 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333f2), color-stop(100%, #002712d6));
-    background: -webkit-linear-gradient(top, #333333f2 0%, #002712d6 100%);
-    background: -o-linear-gradient(top, #333333f2 0%, #002712d6 100%);
-    background: -ms-linear-gradient(top, #333333f2  0%, #002712d6 100%);
-    background: linear-gradient(to bottom, #333333f2 0%, #002712d6 100%);
-    background-size: 150% 150%;
-}
-   .dropdown-menu.k-cust { 
-    float: none;
-    width: auto;
-    margin-top: 0;
-    background-color: transparent;
-    border: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-   } 
-   .dropdown.open .dropdown-menu.k-cust {
-    position: static; 
-   } 
-    </style>
+        background: #333333f2;
+        background: -moz-linear-gradient(top, #333333f2 0%, #002712d6 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333f2), color-stop(100%, #002712d6));
+        background: -webkit-linear-gradient(top, #333333f2 0%, #002712d6 100%);
+        background: -o-linear-gradient(top, #333333f2 0%, #002712d6 100%);
+        background: -ms-linear-gradient(top, #333333f2  0%, #002712d6 100%);
+        background: linear-gradient(to bottom, #333333f2 0%, #002712d6 100%);
+        background-size: 150% 150%;
+    }
+    .dropdown-menu.k-cust { 
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    } 
+    .dropdown.open .dropdown-menu.k-cust {
+        position: static; 
+    } 
+</style>
 
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-5.jpg">
+    <div class="wrapper">
+        <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-5.jpg">
 
     <!--
 
@@ -76,99 +82,90 @@ $db = new Database();
 
     -->
 
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="home.php" class="simple-text">
-                    Home
-                </a>
-            </div>
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="home.php" class="simple-text">
+                Home
+            </a>
+        </div>
 
 
-<?php include_once('navbara.php'); ?>
-            
-    	</div>
+        <?php include_once('navbara.php'); ?>
+
     </div>
+</div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-								<p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-lg hidden-md"></b>
-									<p class="hidden-lg hidden-md">
-										5 Notifications
-										<b class="caret"></b>
-									</p>
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-								<p class="hidden-lg hidden-md">Search</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                           <a href="">
-                               <p>Account</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-										Dropdown
-										<b class="caret"></b>
-									</p>
-
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>Log out</p>
-                            </a>
-                        </li>
-						<li class="separator hidden-lg"></li>
-                    </ul>
-                </div>
+<div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"> </a>
             </div>
-        </nav>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-globe"></i>
+                        <b class="caret hidden-lg hidden-md"></b>
+                        <p class="hidden-lg hidden-md">
+
+                          <b class="caret"></b>
+                      </p>
+                  </a>
+                  
+              </li>
+              <li>
+               <a href="">
+
+               </a>
+           </li>
+       </ul>
+
+       <ul class="nav navbar-nav navbar-right">
+        <li>
+           <a href="">
+
+           </a>
+       </li>
+       <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <p>
+              
+            </p>
+
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="../loginn/logout.php">
+            <p>Log out</p>
+        </a>
+    </li>
+    <li class="separator hidden-lg"></li>
+</ul>
+</div>
+</div>
+</nav>
 
 
-        <div class="content">
-            <div class="container-fluid">
+<div class="content">
+    <div class="container-fluid">

@@ -4,9 +4,11 @@
  * @Author: indran
  * @Date:   2018-08-21 18:45:04
  * @Last Modified by:   indran
- * @Last Modified time: 2018-11-21 05:30:49
+ * @Last Modified time: 2018-11-26 21:15:35
  */
 function auth_login() {
+
+	
 
 
 	if( ! isset( $_SESSION[ SYSTEM_NAME . 'userid'] )   ) {
